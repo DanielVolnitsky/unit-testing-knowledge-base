@@ -1,6 +1,4 @@
-package com.waytoodanny.calculator.operation;
-
-import com.waytoodanny.calculator.operation.BiOperation;
+package com.waytoodanny.homework.calculator.operation;
 
 public class MultiplyOperation implements BiOperation {
 

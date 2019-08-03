@@ -1,6 +1,6 @@
-package com.waytoodanny.calculator;
+package com.waytoodanny.homework.calculator.impl;
 
-import com.waytoodanny.calculator.operation.BiOperation;
+import com.waytoodanny.homework.calculator.operation.BiOperation;
 
 import java.util.ArrayDeque;
 import java.util.Deque;

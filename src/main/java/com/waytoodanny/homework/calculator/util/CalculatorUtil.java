@@ -1,6 +1,6 @@
-package com.waytoodanny.calculator.util;
+package com.waytoodanny.homework.calculator.util;
 
-import com.waytoodanny.calculator.operation.*;
+import com.waytoodanny.homework.calculator.operation.*;
 
 import java.util.HashMap;
 import java.util.Map;
