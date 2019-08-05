@@ -61,6 +61,7 @@ public class TwoStackCalculator {
 
     /**
      * Gets a token at a current position of pointer (pos)
+     * Specify to read it either as digit or operand
      */
     private Object getToken(String s) {
         if (currentReadPosition == s.length()) // end of a line
@@ -77,7 +78,8 @@ public class TwoStackCalculator {
     private String readInteger(String s) {
         StringBuilder result = new StringBuilder();
 
-        while (currentReadPosition < s.length() && (Character.isDigit(s.charAt(currentReadPosition))))
+        while (currentReadPosition < s.length() &&
+                (Character.isDigit(s.charAt(currentReadPosition))))
             result.append(s.charAt(currentReadPosition++));
 
         return result.toString();
