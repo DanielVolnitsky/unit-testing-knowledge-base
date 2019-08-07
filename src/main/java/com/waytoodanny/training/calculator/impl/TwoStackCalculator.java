@@ -6,6 +6,8 @@ import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.Map;
 import java.util.NoSuchElementException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * TwoStackCalculator implementation based on two stacks (operands and operations)
@@ -24,9 +26,11 @@ public class TwoStackCalculator {
     }
 
     public double calculate(String s) throws IllegalArgumentException {
+        checkInput(s);
         try {
 
-            s = '(' + s + ')';
+            s = '(' + s.replaceAll("\\s", "") + ')';
+
             Object token;
 
             do {
@@ -56,6 +60,19 @@ public class TwoStackCalculator {
 
         } finally {
             cleanup();
+        }
+    }
+
+    private void checkInput(String s) {
+        boolean spaces = Pattern.compile("\\s*").matcher(s).matches();
+        if (spaces || s.length() == 0) {
+            throw new IllegalArgumentException("Invalid input");
+        }
+        boolean digits = Pattern.compile("\\d*").matcher(s).matches();
+        int openParenthesesCounter = s.split("\\(").length;
+        int closeParenthesesCounter = s.split("\\)", -1).length;
+        if (openParenthesesCounter != closeParenthesesCounter) {
+            throw new IllegalArgumentException("Invalid input, incorrect parentheses quantity");
         }
     }
 

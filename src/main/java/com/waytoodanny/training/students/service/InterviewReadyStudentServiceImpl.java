@@ -22,6 +22,7 @@ public class InterviewReadyStudentServiceImpl implements InterviewReadyStudentSe
     @Override
     public Collection<Student> getAllReadyForInterview() {
         Collection<Student> all = repository.getAll();
+
         if (interviewReadyFilters.size() == 0) {
             return all;
         }
