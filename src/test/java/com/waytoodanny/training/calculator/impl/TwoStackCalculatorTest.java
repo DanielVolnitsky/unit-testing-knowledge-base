@@ -5,6 +5,7 @@ import com.waytoodanny.training.calculator.util.CalculatorUtil;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.LinkedList;
+import java.util.NoSuchElementException;
 import java.util.Properties;
 import java.util.Queue;
 import java.util.stream.Stream;
@@ -82,18 +83,25 @@ class TwoStackCalculatorTest {
 
     @ParameterizedTest
     @MethodSource("testCases")
-    void calculateCases(ExpressionPackage expression) {
+    void shouldNotFailWhenTestCasesAreGiven(ExpressionPackage expression) {
         assertEquals(calculator.calculate(expression.expression),
                 expression.result);
     }
 
     @Test
-    void shouldThrowArithmeticException() {
+    void shouldThrowArithmeticExceptionWhenDivByZero() {
         Exception exception = assertThrows(ArithmeticException.class,
                 ()->calculator.calculate("3/0"));
         assertEquals("/ by zero", exception.getMessage());
     }
 
+    @Test
+    void shouldThrowIllegalArgumentExceptionWhenUnsupportedOperationOccurred() {
+        Exception exception = assertThrows(IllegalArgumentException.class,
+                () -> calculator.calculate("3^2"));
+
+        assertEquals("Invalid operation: ^", exception.getMessage());
+    }
 
 
 }
