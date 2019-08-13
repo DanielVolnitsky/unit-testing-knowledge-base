@@ -1,5 +1,6 @@
 package com.waytoodanny.training.students.domain;
 
+import lombok.EqualsAndHashCode;
 import lombok.Value;
 
 @Value
