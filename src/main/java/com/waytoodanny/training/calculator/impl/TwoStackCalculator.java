@@ -23,9 +23,8 @@ public class TwoStackCalculator {
         this.supportedOperations = supportedOperations;
     }
 
-    public double calculate(String s) throws IllegalArgumentException {
+    public int calculate(String s) throws IllegalArgumentException {
         try {
-
             s = '(' + s + ')';
             Object token;
 
